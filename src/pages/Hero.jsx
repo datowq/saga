@@ -107,48 +107,52 @@ function Hero() {
                 <div className="flex gap-8">
                   <Feature
                     icon={fish}
-                    name="INTERACTIVE LEARNING"
-                    description="Our Jupyter notebook-like interface allows you to learn by doing, with helpful comments and immediate visual feedback on your code."
+                    name="A GRAPHICAL ADVENTURE"
+                    description="Our Jupyter notebook-like interface and live demos allow you to learn by doing, with helpful comments and immediate visual feedback on your code."
                   />
                   <Feature
                     icon={fish}
-                    name="THREE.JS"
-                    description="Learn to use the super cool and increasingly popular THREE.js library to create 3D graphics in your browser."
+                    name="BALLER CODE EDITOR"
+                    description="Take advantage of our built-in code editor that will allow you to write and test your own THREE.js scripts as you work through the curriculum."
                   />
                   <Feature
                     icon={fish}
-                    name="PHYSICS ENGINE"
-                    description=""
+                    name="THREE.JS LIVE DEMOS"
+                    description="Learn to use the super cool and increasingly popular THREE.js library to create 3D works in your browser."
                   />
                 </div>
                 <div className="flex gap-8">
                   <Feature
                     icon={fish}
-                    name="SHADERS"
-                    description=""
-                  />
-                  <Feature
-                    icon={fish}
-                    name="CODE EDITOR"
-                    description="Take advantage of our built-in code editor that will allow you to write and test your own THREE.js scripts as you work through the curriculum."
+                    name="RAPIER PHYSICS ENGINE"
+                    description="Bring your THREE.js objects to life with the help of the fast, lightweight Rapier physics engine."
                   />
                   <Feature
                     icon={fish}
                     name="AI/ML"
                     description="Learn how to integrate LLM-powered non-player characters into your game, providing original and endless dialogs with minimal pre-directives."
                   />
+                  <Feature
+                    icon={fish}
+                    name="CATS"
+                    description="Lots of cats. And ballers???"
+                  />
                 </div>
               </div>
             </div>
             <div>
               <div className="font-bold text-2xl pb-2"> TECHNOLOGIES USED </div>
-              <div> Lorem Ipsum. </div>
+              <div>
+                {" "}
+                React.js, Three.js, React Three Fiber, React Three Drei, React
+                Three Rapier, Google AI Gemini API{" "}
+              </div>
             </div>
           </div>
           <img src={quotecat} width={500} className="absolute right-10" />
           <div className="absolute right-72 bottom-36 text-grey text-xl">
             {" "}
-            "some wonderful nice thing" - jenna{" "}
+            "i love ballers" - jenna{" "}
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-0 h-0 border-b-[120px] border-b-beige border-r-[200px] border-r-transparent">
@@ -171,7 +175,9 @@ function Hero() {
           <Tabs defaultValue="pge">
             <TabsList>
               <TabsTrigger value="pge">PSEUDO GAME ENGINE</TabsTrigger>
-              <TabsTrigger value="aimla">NON-PLAYER CHARACTERS USING LLMs</TabsTrigger>
+              <TabsTrigger value="aimla">
+                NON-PLAYER CHARACTERS USING LLMs
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="pge">
               <PseudoGameEngine />
