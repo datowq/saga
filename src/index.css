@@ -52,3 +52,17 @@ h2 {
     src: url(/fonts/FFNort-Bold.otf) format("opentype");
   }
 }
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  main {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+  }
+}
