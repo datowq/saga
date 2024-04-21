@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { usePlayerControls } from "../utils";
 import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
+import { meshBounds } from "@react-three/drei";
 
 const capsule = new THREE.BoxGeometry(0.75, 2.5, 0.75);
 const red = new THREE.MeshStandardMaterial({ color: "red" });
@@ -28,6 +29,9 @@ const Player = (props) => {
 
   const mouse = new THREE.Vector2();
   const raycaster = new THREE.Raycaster();
+
+  const [lastRaycastTime, setLastRaycastTime] = useState(performance.now());
+  const RAYCAST_INTERVAL = 100; // Perform raycasting every 100ms
 
   useFrame((state, delta) => {
     let prevPos = camera.position.clone();
@@ -83,21 +87,25 @@ const Player = (props) => {
       setCanJump(true);
     }
 
-    raycaster.setFromCamera(mouse, camera);
+    const currentTime = performance.now();
+    if (currentTime - lastRaycastTime > RAYCAST_INTERVAL) {
+      raycaster.setFromCamera(mouse, camera);
 
-    // Find all objects that intersect with the raycaster
-    const intersects = raycaster.intersectObjects(scene.children, true);
+      // Find all objects that intersect with the raycaster
+      const intersects = raycaster.intersectObjects(scene.children, true);
 
-    // Handle intersections
-    if (intersects.length > 0) {
-      // console.log(intersects[0]);
+      // Handle intersections
+      if (intersects.length > 0) {
+        console.log(intersects[0]);
 
-      if (intersects[0].distance <= 5) {
-        // console.log("hit bigboi");
-        props.setHitObject(intersects[0].object["name"]);
-      } else {
-        props.setHitObject("none");
+        if (intersects[0].distance <= 5) {
+          // console.log("hit bigboi");
+          props.setHitObject(intersects[0].object["name"]);
+        } else {
+          props.setHitObject("none");
+        }
       }
+      setLastRaycastTime(currentTime);
     }
   });
 
@@ -137,6 +145,7 @@ const Player = (props) => {
         }}
       >
         <mesh
+          raycast={meshBounds}
           castShadow
           position={camera.position}
           ref={playerRef}

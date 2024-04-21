@@ -3,6 +3,7 @@ import { Html, Text, Sky } from "@react-three/drei";
 import Box from "../components/3d/prefabs/Box";
 import Player from "../components/3d/prefabs/Player";
 import PlaygroundScene from "../components/3d/scenes/PlaygroundScene";
+import { meshBounds } from "@react-three/drei";
 
 function GemniTutorial() {
   const [hitObject, setHitObject] = useState("none");

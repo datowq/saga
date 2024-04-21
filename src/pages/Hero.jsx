@@ -11,6 +11,7 @@ import constructioncat from "../assets/constructioncat.png";
 import fish from "../assets/fish.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from "react-router-dom";
+import Hero3D from "../components/Hero3D";
 
 function Hero() {
   return (
@@ -20,15 +21,19 @@ function Hero() {
       <div className="w-3 h-3 bg-grey absolute top-40 left-24"></div>
       <div className="w-4 h-4 bg-grey absolute top-16 left-16"></div>
       <div className="flex flex-col items-center justify-center py-32">
+        <Hero3D />
         <div className="text-grey font-bold -mb-8">
           {" "}
           SUPER AWESOME GRAPHICAL ADVENTURE{" "}
         </div>
-        <div className="text-blue font-bold" style={{ fontSize: 230 }}>
+        <div
+          className="text-blue font-bold drop-shadow-lg"
+          style={{ fontSize: 230 }}
+        >
           {" "}
           SAGA{" "}
         </div>
-        <div className="flex gap-12">
+        <div className="flex gap-12 z-50">
           <Button
             text="WHY SAGA"
             bgColor="beige"
@@ -49,9 +54,9 @@ function Hero() {
           />
           <Button
             text="GET STARTED"
-            bgColor="beige"
+            bgColor="blue"
             bgHoverColor="grey"
-            textColor="blue"
+            textColor="beige"
             textHoverColor="beige"
             outlineColor="blue"
             link="/npc"
