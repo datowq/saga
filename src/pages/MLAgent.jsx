@@ -394,6 +394,12 @@ function MLAgent() {
                         >
                           {response3}
                         </button>
+                        <button
+                          onClick={() => exitInteraction()}
+                          className="w-full m-2 font-bold text-white bg-black hover:opacity-70 py-2 px-4 rounded"
+                        >
+                          Exit the conversation
+                        </button>
                       </div>
                     </div>
                   )}
