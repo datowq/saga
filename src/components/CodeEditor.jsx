@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MonacoEditor from "react-monaco-editor";
-import { Remark } from 'react-remark';
+import { Remark } from "react-remark";
 import * as monaco from "monaco-editor/esm/vs/editor/editor.api"; // Import Monaco Editor
 
 // Import language support
@@ -8,31 +8,81 @@ import "monaco-editor/esm/vs/basic-languages/javascript/javascript.contribution"
 import "monaco-editor/esm/vs/basic-languages/html/html.contribution";
 import "monaco-editor/esm/vs/basic-languages/css/css.contribution";
 
-const textBlockOne = `
-# Implementing the Sage NPCs using Google Gemini API
+const introText = `
+# Getting Started with Three.js: A Spinning Green Cube
 
-Below, you will be able to examine the source code that runs in the background of our little sage interaction. Together, we will walk through it, so that, by the end of this tutorial, you would be able to implement an NPC conversation on your own.
+This guide will introduce you to the basics of creating a Three.js scene with a spinning green cube. Three.js is a powerful JavaScript library that lets you build stunning 3D graphics for the web.
 
-## Setting up
+Here's a breakdown of the steps involved:
 
-First let's import the necessary React hooks, as well as the Google Generative AI module. You can find full Google documentation for Node.js [here](https://ai.google.dev/gemini-api/docs/get-started/node).
+1. **Setting Up the HTML file:** We'll create a basic HTML file (index.html) to serve as the foundation for our scene. This file will include a script tag referencing a JavaScript file (script.js) where we'll write our Three.js code.
 
-We initialize the \`GoogleGenerativeAI\` module using our custom API key that can be generated in Google AI Studio. Then, we create three different model objects; first two represent the two sages who are having a conversation before the player comes in. The last model handles interaction between the user and one of the sages. The reason why we create a new model for this interaction is so that we can give a new directive to the model on how to behave when communicating with the player (this will become clear later!).
-`
+2. **Building the Scene in JavaScript:** Inside the script.js file, we'll define the core elements of our 3D scene using Three.js:
+    - **Scene:** This object holds all the elements in our 3D world, like the cube.
+    - **Camera:** This object specifies how the scene will be viewed, defining the perspective.
+    - **Renderer:** This object takes care of drawing the scene onto the web page.
 
-const textBlockTwo = `
-Next, let's set up chats for each of the three models. The first directive we give to each model within its \`history\` is very important, as this will usually dictate how it will respond during future interactions. Since the first two models both represent sages we will set up their chats with the same history. Nevertheless, if we wanted to achieve more diversity in their responses, we could give slightly different directives to each one.
-`
+3. **Adding a Green Cube:** We'll create a green cube using Three.js. Here's the process:
+    - Define the cube's shape (geometry) using BoxGeometry.
+    - Set the cube's color using MeshBasicMaterial.
+    - Combine the geometry and material to create a Mesh object, which is the actual 3D cube we'll see.
+    - Add the cube mesh to the scene.
 
-const MarkdownBlock = ({ text }) => (
-  <Remark>{text}</Remark>
-);
+4. **Animation: Making the Cube Spin:** We'll create an animation loop to continuously update the cube's rotation, creating the spinning effect. This will involve using the requestAnimationFrame function and updating the cube's rotation properties within each frame.
+
+**Ready to see it in action?** Fill in the empty code blocks below to write the JavaScript code for creating the spinning cube scene. Run the code, and you should see a green cube spinning in the output window!
+`;
+
+const codeBlockOne = `
+// Scene
+const scene = new THREE.Scene();
+
+// Camera
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
+
+// Renderer
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+`;
+
+const codeBlockTwo = `
+// Geometry (shape)
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+
+// Material (color and appearance)
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 }); // green color
+
+// Mesh (combines geometry and material)
+const cube = new THREE.Mesh(geometry, material);
+
+// Add the cube to the scene
+scene.add(cube);
+`;
+
+const codeBlockThree = `
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Update cube rotation
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
+
+  // Render the scene
+  renderer.render(scene, camera);
+}
+
+animate();
+`;
+
+const MarkdownBlock = ({ text }) => <Remark>{text}</Remark>;
 
 function CodeEditor() {
   const [codeBlocks, setCodeBlocks] = useState(["", "", ""]); // Initialize with two empty code blocks
 
   const handleEditorChange = (newValue, index) => {
-    setCodeBlocks(prevBlocks => {
+    setCodeBlocks((prevBlocks) => {
       const newBlocks = [...prevBlocks];
       newBlocks[index] = newValue;
       return newBlocks;
@@ -78,38 +128,43 @@ function CodeEditor() {
     runCode();
   }, [codeBlocks]);
 
+  useEffect(() => {
+    runCode();
+  }, []);
+
   return (
-    <div className="flex gap-16 pb-2">
-      <div className="flex flex-col gap-6 w-1/2">
-        <MarkdownBlock text={textBlockOne} />
+    <div className="flex gap-16 pb-2 h-full">
+      <div className="flex flex-col gap-6 w-1/2 overflow-y-scroll">
+        <MarkdownBlock text={introText} />
         <MonacoEditor
           height="300"
           language="javascript"
           theme="vs-dark"
-          value={codeBlocks[0]}
+          value={codeBlockOne} // Set the default code for the first editor
           options={editorOptions}
           onChange={(newValue) => handleEditorChange(newValue, 0)}
         />
-        <MarkdownBlock text={textBlockTwo} />
+
         <MonacoEditor
           height="300"
           language="javascript"
           theme="vs-dark"
-          value={codeBlocks[1]}
+          value={codeBlockTwo} // Set the default code for the second editor
           options={editorOptions}
           onChange={(newValue) => handleEditorChange(newValue, 1)}
         />
+
         <MonacoEditor
           height="300"
           language="javascript"
           theme="vs-dark"
-          value={codeBlocks[2]}
+          value={codeBlockThree} // Set the default code for the third editor
           options={editorOptions}
           onChange={(newValue) => handleEditorChange(newValue, 2)}
         />
       </div>
       <div class="border-2 border-grey"></div>
-      <div className="w-1/2">
+      <div className="w-1/2 flex flex-col h-full overflow-hidden">
         <div className="text-xl font-bold mb-4">OUTPUT</div>
         <iframe
           id="output"

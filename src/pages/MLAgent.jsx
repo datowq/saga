@@ -279,7 +279,7 @@ function MLAgent() {
 
   return (
     <div className="w-full h-full">
-      <div className="fixed h-full w-full text-2xl flex justify-center z-50 items-center">
+      <div className="fixed h-full w-full text-2xl flex justify-center z-50 items-center select-none">
         +
       </div>
       {(hitObject === "einstein" || hitObject === "oppenheimer") && (
@@ -404,7 +404,8 @@ function MLAgent() {
       )}
       <div className="fixed h-full w-full flex justify-center z-10 items-end">
         <div className="p-4 m-2 bg-white text-lg rounded-lg translate-y-[-1rem] drop-shadow-lg">
-          <span className="font-bold">Press q</span> to display Markdown with code explanations!
+          <span className="font-bold">Press q</span> to display Markdown with
+          code explanations!
         </div>
       </div>
       <MarkdownButton />
@@ -415,9 +416,7 @@ function MLAgent() {
           args={[80, 10, 50]}
           color="orange"
           name="bigboi"
-        >
-
-        </Box>
+        ></Box>
 
         <Player
           controls
