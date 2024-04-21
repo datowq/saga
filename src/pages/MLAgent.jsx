@@ -65,7 +65,7 @@ const suggestions = suggest.startChat({
   history: [
     {
       role: 'user',
-      parts: [{ text: 'You are representing a player of the game who is having a conversation with one of the NPCs. For each prompt you receive from the NPC, please give a very short response, no longer than one sentence. Give very diverse responses. MAX ONE SENTENCE RESPONSES' }],
+      parts: [{ text: 'You are representing a player of the game who is having a conversation with LeBron James, a famous basketball player. For each prompt you receive from LeBron James, please give a very short response, no longer than one sentence. Give very diverse responses. You should act very humble, and seek LeBron\'s advice on sport and life. MAX ONE SENTENCE RESPONSES' }],
     },
     {
       role: 'model',
@@ -245,6 +245,11 @@ function MLAgent() {
     isFirstMessage = true;
   };
 
+  const exitInteraction = () => {
+    setInteractionWindow(false);
+    setIsInteractionStarted(false);
+  };
+
   return (
     <div className="w-full h-full">
       <div className="fixed h-full w-full flex justify-center z-50 items-center">
@@ -264,7 +269,10 @@ function MLAgent() {
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="bg-black text-white p-8 rounded-lg shadow-lg border-4 border-yellow-500">
             {!isConversationStarted ? (
-          <button onClick={handleStartConversation}>Listen to their conversation</button>
+            <div>
+              <button onClick={handleStartConversation}>Listen to their conversation</button>
+              <button onClick={() => exitConversation()}>Exit the window</button>
+            </div>
         ) : (
           <div>
             {einsteinResponse.map((message, index) => (
@@ -317,6 +325,7 @@ function MLAgent() {
                   <button onClick={() => handleSuggestedResponse(response3)}>
                     {response3}
                   </button>
+                  <button onClick={() => exitInteraction()}>Exit this interaction</button>
                 </div>
               )}
             </div>)}
