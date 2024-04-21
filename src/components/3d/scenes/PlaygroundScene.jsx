@@ -24,7 +24,7 @@ const PlaygroundScene = ({ children }) => {
         className="w-full h-full"
         frameloop="always"
         shadows
-        camera={{ position: [0, 2, 0], fov: 100 }}
+        camera={{ position: [0, 2, 0], rotation: [0, 0, 0], fov: 70 }}
         gl={{ preserveDrawingBuffer: true, antialias: true }}
       >
         <Suspense>

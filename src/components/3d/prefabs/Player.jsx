@@ -97,14 +97,15 @@ const Player = (props) => {
       if (intersects.length > 0) {
         // console.log(intersects[0]);
 
-      if (intersects[0].distance <= 7) {
-        // console.log("hit bigboi");
-        props.setHitObject(intersects[0].object["name"]);
-      } else {
-        props.setHitObject("none");
+        if (intersects[0].distance <= 7) {
+          // console.log("hit bigboi");
+          props.setHitObject(intersects[0].object["name"]);
+        } else {
+          props.setHitObject("none");
+        }
       }
     }
-  }});
+  });
 
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -123,7 +124,7 @@ const Player = (props) => {
 
   return (
     <group>
-      <RigidBody
+      {/* <RigidBody
         colliders={"cuboid"}
         restitution={-999}
         mass={9999}
@@ -149,7 +150,7 @@ const Player = (props) => {
           geometry={capsule}
           material={red}
         />
-      </RigidBody>
+      </RigidBody> */}
     </group>
   );
 };

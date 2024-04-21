@@ -5,7 +5,7 @@ const Box = ({ children, ...props }) => {
   const ref = useRef();
 
   return (
-    <RigidBody colliders={"cuboid"} restitution={-10} mass={500}>
+    <RigidBody colliders={"cuboid"} restitution={-9999} mass={9999}>
       {children}
       <mesh name={props.name} castShadow position={props.position} ref={ref}>
         <boxGeometry args={props.args} />
