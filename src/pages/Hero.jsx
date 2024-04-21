@@ -4,14 +4,19 @@ import Feature from "../components/Feature";
 import Track from "../components/Track";
 import PseudoGameEngine from "../components/PseudoGameEngine";
 import AIMLAgent from "../components/AIMLAgent";
-import quotecat from "../assets/quotecat.png";
-import musiccat from "../assets/musiccat.png";
-import sagacat from "../assets/sagacat.png";
-import talkingcats from "../assets/talkingcats.png";
-import constructioncat from "../assets/constructioncat.png";
+import quotecat from "../assets/quotecat.svg";
+import musiccat from "../assets/musiccat.svg";
+import sagacat from "../assets/sagacat.svg";
+import talkingcats from "../assets/talkingcats.svg";
+import constructioncat from "../assets/constructioncat.svg";
 import seriouslygraphical from "../assets/seriouslygraphical.png";
 import awesomeadventure from "../assets/awesomeadventure.png";
-import fish from "../assets/fish.png";
+import fish from "../assets/fish.svg";
+import yarn from "../assets/yarn.svg";
+import bell from "../assets/bell.svg";
+import mouse from "../assets/mouse.svg";
+import paw from "../assets/paw.svg";
+import whiskers from "../assets/whiskers.svg";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Hero3D from "../components/Hero3D";
 
@@ -105,7 +110,7 @@ function Hero() {
               </div>
               <div>
                 SAGA is the joint effort of cat-lovers to teach people how to
-                make cool games.
+                make cool games
               </div>
             </div>
             <div>
@@ -113,17 +118,17 @@ function Hero() {
               <div className="flex flex-col gap-8">
                 <div className="flex gap-8 z-10">
                   <Feature
-                    icon={fish}
+                    icon={paw}
                     name="A GRAPHICAL ADVENTURE"
                     description="Our Jupyter notebook-like interface and live demos allow you to learn by doing, with helpful comments and immediate visual feedback on your code."
                   />
                   <Feature
-                    icon={fish}
+                    icon={yarn}
                     name="BALLER CODE EDITOR"
                     description="Take advantage of our built-in code editor that will allow you to write and test your own THREE.js scripts as you work through the curriculum."
                   />
                   <Feature
-                    icon={fish}
+                    icon={bell}
                     name="THREE.JS LIVE DEMOS"
                     description="Learn to use the super cool and increasingly popular THREE.js library to create 3D works in your browser."
                   />
@@ -135,12 +140,12 @@ function Hero() {
                     description="Bring your THREE.js objects to life with the help of the fast, lightweight Rapier physics engine."
                   />
                   <Feature
-                    icon={fish}
+                    icon={mouse}
                     name="AI/ML"
                     description="Learn how to integrate LLM-powered non-player characters into your game, providing original and endless dialogs with minimal pre-directives."
                   />
                   <Feature
-                    icon={fish}
+                    icon={whiskers}
                     name="CATS"
                     description="Lots of cats. And ballers???"
                   />
@@ -149,7 +154,7 @@ function Hero() {
             </div>
             <div>
               <div className="font-bold text-2xl pb-2"> TECHNOLOGIES USED </div>
-              <div>
+              <div className="max-w-lg">
                 {" "}
                 React.js, Three.js, React Three Fiber, React Three Drei, React
                 Three Rapier, Google AI Gemini API, WebGL{" "}
@@ -161,10 +166,6 @@ function Hero() {
             width={500}
             className="absolute right-10 bottom-4"
           />
-          <div className="absolute right-72 bottom-36 text-grey text-xl">
-            {" "}
-            "i love ballers" - jenna{" "}
-          </div>
         </div>
         <div className="absolute bottom-0 left-0 w-0 h-0 border-b-[120px] border-b-beige border-r-[200px] border-r-transparent">
           {" "}
