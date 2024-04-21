@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import OutlineText from "../components/OutlineText";
 import Feature from "../components/Feature";
 import Track from "../components/Track";
 import PseudoGameEngine from "../components/PseudoGameEngine";

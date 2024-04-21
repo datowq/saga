@@ -8,13 +8,14 @@ const Button = ({
   textColor,
   textHoverColor,
   outlineColor,
+  outlineHoverColor,
   link,
 }) => {
   console.log(link);
   return (
     <Link to={link}>
       <button
-        className={`w-48 outline outline-4 outline-${outlineColor} py-4 font-bold text-${textColor} bg-${bgColor} hover:text-${textHoverColor} hover:bg-${bgHoverColor}`}
+        className={`w-48 outline outline-4 outline-${outlineColor} py-4 font-bold text-${textColor} bg-${bgColor} hover:text-${textHoverColor} hover:bg-${bgHoverColor} hover:outline-${outlineHoverColor}`}
       >
         {text}
       </button>
