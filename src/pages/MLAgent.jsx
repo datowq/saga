@@ -79,7 +79,7 @@ const suggestions = suggest.startChat({
       role: "user",
       parts: [
         {
-          text: "You are representing a player of the game who is having a conversation with one of the NPCs. For each prompt you receive from the NPC, please give a very short response, no longer than one sentence. Give very diverse responses. MAX ONE SENTENCE RESPONSES. WRAP EACH RESPONSE IN QUOTES.",
+          text: "You are representing a player of the game who is having a conversation with LeBron James, a famous basketball player. For each prompt you receive from LeBron James, please give a very short response, no longer than one sentence. Give very diverse responses. You should act very humble, and seek LeBron's advice on sport and life. MAX ONE SENTENCE RESPONSES. WRAP EACH RESPONSE IN QUOTES.",
         },
       ],
     },
@@ -271,6 +271,11 @@ function MLAgent() {
     isFirstMessage = true;
   };
 
+  const exitInteraction = () => {
+    setInteractionWindow(false);
+    setIsInteractionStarted(false);
+  };
+
   return (
     <div className="w-full h-full">
       <div className="fixed h-full w-full text-2xl flex justify-center z-50 items-center">
@@ -295,40 +300,29 @@ function MLAgent() {
         <div className="fixed inset-8 flex items-center justify-center z-50">
           <div className="bg-white text-black rounded shadow">
             {!isConversationStarted ? (
-              <button
-                onClick={handleStartConversation}
-                className="w-full text-black text-center hover:bg-black hover:text-white bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              >
-                <span className="font-bold">Click</span> to listen in!
+              <button onClick={handleStartConversation}>
+                Listen to their conversation
               </button>
             ) : (
-              <div className="p-4 flex flex-col">
+              <div>
                 {einsteinResponse.map((message, index) => (
-                  <div className="m-2" key={index}>
-                    <strong>{message.sender}:</strong>{" "}
-                    <div>{message.message}</div>
+                  <div key={index}>
+                    <strong>{message.sender}:</strong> {message.message}
                   </div>
                 ))}
                 {oppenheimerResponse.map((message, index) => (
-                  <div className="m-2" key={index}>
-                    <strong>{message.sender}:</strong>
-                    <div>{message.message}</div>
+                  <div key={index}>
+                    <strong>{message.sender}:</strong> {message.message}
                   </div>
                 ))}
                 {isGenerating ? (
                   <p>{currentSender} is thinking...</p>
                 ) : (
-                  <div className="flex flex-col space-y-2">
-                    <button
-                      className="w-full my-2 text-white bg-black text-center hover:opacity-70 font-bold py-2 px-4 rounded"
-                      onClick={() => setIsGenerating(true)}
-                    >
-                      What will {currentSender} say?
+                  <div>
+                    <button onClick={() => setIsGenerating(true)}>
+                      Continue {currentSender}'s response
                     </button>
-                    <button
-                      className="w-full text-white bg-black text-center hover:opacity-70 font-bold py-2 px-4 rounded"
-                      onClick={() => exitConversation()}
-                    >
+                    <button onClick={() => exitConversation()}>
                       Exit the conversation
                     </button>
                   </div>
@@ -349,46 +343,31 @@ function MLAgent() {
                 <span className="font-bold">Click</span> to greet LeBron!
               </button>
             ) : (
-              <div className="p-4">
-                <div className="mb-4">
-                  <h2 className="font-bold mb-2 relative">
-                    THE GOAT LeBron:
-                    {lebronResponse.length > 0 && (
-                      <img
-                        className="absolute right-0 top-[-10rem] p-2 max-h-48 z-10"
-                        src="/images/lebron.png"
-                        alt="LeBron James"
-                      />
-                    )}
-                  </h2>
-                  <div className="z-30 flex text-center rounded p-2">
-                    <p className="z-20 w-full text-black">{lebronResponse}</p>
-                  </div>
+              <div>
+                <div>
+                  <h2>LeBron:</h2>
+                  <p>{lebronResponse}</p>
                 </div>
                 {response1.length > 0 &&
                   response2.length > 0 &&
                   response3.length > 0 && (
-                    <div className="z-50">
-                      <div className="z-50 flex flex-wrap justify-center w-full">
-                        <button
-                          onClick={() => handleSuggestedResponse(response1)}
-                          className="z-30 w-full m-2 font-bold text-white bg-black hover:opacity-70 py-2 px-4 rounded"
-                        >
-                          {response1}
-                        </button>
-                        <button
-                          onClick={() => handleSuggestedResponse(response2)}
-                          className="w-full m-2 font-bold text-white bg-black hover:opacity-70 py-2 px-4 rounded"
-                        >
-                          {response2}
-                        </button>
-                        <button
-                          onClick={() => handleSuggestedResponse(response3)}
-                          className="w-full m-2 font-bold text-white bg-black hover:opacity-70 py-2 px-4 rounded"
-                        >
-                          {response3}
-                        </button>
-                      </div>
+                    <div>
+                      <h3>Suggested Responses:</h3>
+                      <button
+                        onClick={() => handleSuggestedResponse(response1)}
+                      >
+                        {response1}
+                      </button>
+                      <button
+                        onClick={() => handleSuggestedResponse(response2)}
+                      >
+                        {response2}
+                      </button>
+                      <button
+                        onClick={() => handleSuggestedResponse(response3)}
+                      >
+                        {response3}
+                      </button>
                     </div>
                   )}
               </div>

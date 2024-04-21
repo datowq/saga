@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import OutlineText from "../components/OutlineText";
 import Feature from "../components/Feature";
 import Track from "../components/Track";
 import PseudoGameEngine from "../components/PseudoGameEngine";
@@ -24,7 +25,7 @@ function Hero() {
         <Hero3D />
         <div className="text-grey font-bold -mb-8">
           {" "}
-          SUPER AWESOME GRAPHICAL ADVENTURE{" "}
+          SERIOUSLY AWESOME GRAPHICAL ADVENTURE{" "}
         </div>
         <div
           className="text-blue font-bold drop-shadow-lg"
@@ -98,7 +99,7 @@ function Hero() {
                 {" "}
                 GENERAL DESCRIPTION{" "}
               </div>
-              <div> Lorem Ipsum. </div>
+              <div> </div>
             </div>
             <div>
               <div className="font-bold text-2xl pb-2"> FEATURES </div>
@@ -107,34 +108,34 @@ function Hero() {
                   <Feature
                     icon={fish}
                     name="INTERACTIVE LEARNING"
-                    description="Lorem Ipsum."
+                    description="Our Jupyter notebook-like interface allows you to learn by doing, with helpful comments and immediate visual feedback on your code."
+                  />
+                  <Feature
+                    icon={fish}
+                    name="THREE.JS"
+                    description="Learn to use the super cool and increasingly popular THREE.js library to create 3D graphics in your browser."
                   />
                   <Feature
                     icon={fish}
                     name="PHYSICS ENGINE"
-                    description="Lorem Ipsum."
-                  />
-                  <Feature
-                    icon={fish}
-                    name="SHADERS"
-                    description="Lorem Ipsum."
+                    description=""
                   />
                 </div>
                 <div className="flex gap-8">
                   <Feature
                     icon={fish}
+                    name="SHADERS"
+                    description=""
+                  />
+                  <Feature
+                    icon={fish}
                     name="CODE EDITOR"
-                    description="Lorem Ipsum."
+                    description="Take advantage of our built-in code editor that will allow you to write and test your own THREE.js scripts as you work through the curriculum."
                   />
                   <Feature
                     icon={fish}
                     name="AI/ML"
-                    description="Lorem Ipsum."
-                  />
-                  <Feature
-                    icon={fish}
-                    name="CATS"
-                    description="WE LOVE CATS. POGGIES!"
+                    description="Learn how to integrate LLM-powered non-player characters into your game, providing original and endless dialogs with minimal pre-directives."
                   />
                 </div>
               </div>
@@ -170,7 +171,7 @@ function Hero() {
           <Tabs defaultValue="pge">
             <TabsList>
               <TabsTrigger value="pge">PSEUDO GAME ENGINE</TabsTrigger>
-              <TabsTrigger value="aimla">AI/ML AGENT</TabsTrigger>
+              <TabsTrigger value="aimla">NON-PLAYER CHARACTERS USING LLMs</TabsTrigger>
             </TabsList>
             <TabsContent value="pge">
               <PseudoGameEngine />
@@ -225,9 +226,9 @@ function Hero() {
               buttonLink="/npc"
             />
             <Track
-              name="AI/ML AGENT"
+              name="AI/ML AGENTS"
               image={talkingcats}
-              description="Incorporate AI/ML into the games you create. Watch the fun!"
+              description="Incorporate LLM-powered characters into the games you create. Watch the fun!"
               buttonText="START TRAINING"
               buttonLink="/npc"
             />

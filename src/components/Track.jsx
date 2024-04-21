@@ -13,6 +13,7 @@ const Track = ({ name, image, description, buttonText, buttonLink }) => {
         textColor="beige"
         textHoverColor="grey"
         outlineColor="beige"
+        outlineHoverColor="grey"
         link={buttonLink}
       />
     </div>

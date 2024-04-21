@@ -13,6 +13,7 @@ html {
   font-family: "FF Nort";
   font-weight: 400;
   background-color: #ece8e1;
+  /* background-color: white; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,25 +21,90 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@keyframes moveLeftToRight {
+h1 {
+  font-family: "FF Nort";
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: "FF Nort";
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+
+@keyframes slide {
   0% {
-    transform: rotate(90deg) translateX(100%);
+    transform: translateX(40%);
   }
   100% {
-    transform: rotate(90deg) translateX(-100%);
+    transform: translateX(-270%);
   }
 }
 
+@keyframes slide-meow {
+  0% {
+    transform: rotate(90deg) translateX(-200%);
+  }
+  100% {
+    transform: rotate(90deg) translateX(180%);
+  }
+}
+
+.outline-slide {
+  display: inline-flex;
+  animation: slide 9s linear infinite;
+}
+
+.outline-slide-2 {
+  display: inline-flex;
+  animation: slide 9s linear infinite;
+  animation-delay: 3s;
+}
+
+.outline-slide-3 {
+  display: inline-flex;
+  animation: slide 9s linear infinite;
+  animation-delay: 6s;
+}
+
+.meow-slide {
+  display: inline-flex;
+  animation: slide-meow 36s linear infinite;
+}
+
+.meow-slide-2 {
+  display: inline-flex;
+  animation: slide-meow 36s linear infinite;
+  animation-delay: 12s;
+}
+
+.meow-slide-3 {
+  display: inline-flex;
+  animation: slide-meow 36s linear infinite;
+  animation-delay: 24s;
+}
+
 .beige-text-outline {
+  /* color: #0504FE; */
+  color: red;
+  -webkit-text-stroke: 3px #ECE8E1;
+  paint-order: stroke fill;
+  /* opacity: 50%; */
+  transform-origin: top left;
+  transform: rotate(90deg);
+}
+
+.blue-text-outline {
+  color: #ECE8E1;
+  -webkit-text-stroke: 3px #0504FE;
   color: #0504fe;
   -webkit-text-stroke: 3px #ece8e1;
   paint-order: stroke fill;
   opacity: 50%;
   transform-origin: top left;
-  z-index: 0;
-  white-space: nowrap;
-  display: inline-block;
-  animation: moveLeftToRight 10s linear infinite;
 }
 
 @layer base {
@@ -47,7 +113,7 @@ html {
     font-style: normal;
     font-weight: normal;
     font-display: swap;
-    src: url(/fonts/FFNort-Regular.ttf) format("truetype");
+    src: url(/fonts/FFNort-Regular.otf) format("opentype");
   }
 
   @font-face {
@@ -55,6 +121,6 @@ html {
     font-style: bold;
     font-weight: bold;
     font-display: swap;
-    src: url(/fonts/FFNort-Bold.ttf) format("truetype");
+    src: url(/fonts/FFNort-Bold.otf) format("opentype");
   }
 }
