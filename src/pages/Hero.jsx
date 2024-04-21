@@ -1,6 +1,5 @@
 import Button from "../components/Button";
 import ScrollButton from "../components/ScrollButton";
-import OutlineText from "../components/OutlineText";
 import Feature from "../components/Feature";
 import Track from "../components/Track";
 import PseudoGameEngine from "../components/PseudoGameEngine";
@@ -88,8 +87,6 @@ function Hero() {
           src={seriouslygraphical}
           className="absolute bottom-0 right-0 pointer-events-none w-72"
         />
-        {/* <OutlineText word1="SERIOUSLY" word2="AWESOME" color="beige" /> */}
-        <div className="beige-text-outline"> SERIOUSLY </div>
         <div className="flex items-center gap-4 left-0">
           <div className="w-32 h-2 bg-beige"></div>
           <div className="font-bold"> 01: ABOUT THIS PROJECT </div>
@@ -250,7 +247,7 @@ function Hero() {
               buttonLink="/npc"
             />
             <Track
-              name="AI/ML AGENTS"
+              name="NON-PLAYER CHARACTERS USING LLMs"
               image={talkingcats}
               description="Incorporate LLM-powered characters into the games you create. Watch the fun!"
               buttonText="START TRAINING"

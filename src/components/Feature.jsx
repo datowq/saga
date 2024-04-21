@@ -5,7 +5,7 @@ const Feature = ({ icon, name, description }) => {
                 <img src={icon} width={30} />
                 <div className="font-bold"> {name} </div>
             </div>
-            <div className="bg-beige text-grey p-4">{description}</div>
+            <div className="bg-beige text-grey p-4 min-h-32">{description}</div>
         </div>
     );
 };
