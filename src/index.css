@@ -14,6 +14,7 @@ html {
   font-weight: 400;
   background-color: #ece8e1;
   /* background-color: white; */
+  scroll-behavior: smooth;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -93,7 +94,7 @@ h2 {
   -webkit-text-stroke: 3px #ECE8E1;
   paint-order: stroke fill;
   /* opacity: 50%; */
-  transform-origin: top left;
+  /* transform-origin: top left; */
   transform: rotate(90deg);
 }
 
