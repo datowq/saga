@@ -76,11 +76,39 @@ function Hero() {
                 </div>
                 <div className="px-36">
                     <div className="font-bold text-8xl leading-none"> CHAPTERS </div>
+                    <div className="flex gap-4 mb-10">
+                        <div> PSEUDO GAME ENGINE </div>
+                        <div> AI/ML AGENT </div>
+                    </div>
                     <Accordion type="single" collapsible>
                         <AccordionItem value="item-1">
-                            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                            <AccordionTrigger>INTRO TO GAME DEV</AccordionTrigger>
                             <AccordionContent>
-                            Yes. It adheres to the WAI-ARIA design pattern.
+                                Lorem Ipsum.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-2" className="w-11/12">
+                            <AccordionTrigger>WEBGL, WEBGPU</AccordionTrigger>
+                            <AccordionContent>
+                                Lorem Ipsum.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-3" className="w-10/12">
+                            <AccordionTrigger>PHYSICS ENGINE</AccordionTrigger>
+                            <AccordionContent>
+                                Lorem Ipsum.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-4" className="w-9/12">
+                            <AccordionTrigger>THREE.JS</AccordionTrigger>
+                            <AccordionContent>
+                                Lorem Ipsum.
+                            </AccordionContent>
+                        </AccordionItem>
+                        <AccordionItem value="item-5" className="w-8/12">
+                            <AccordionTrigger>INTERACTION</AccordionTrigger>
+                            <AccordionContent>
+                                Lorem Ipsum.
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>
