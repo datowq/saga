@@ -7,7 +7,7 @@ import "monaco-editor/esm/vs/basic-languages/html/html.contribution";
 import "monaco-editor/esm/vs/basic-languages/css/css.contribution";
 
 const text = `
-# Implementing the Sage NPCs using Google Gemini API
+# Implementing NPC Interactions using Google Gemini API
 
 Below, you will be able to examine the source code that runs in the background of our little NPC interactions. Together, we will walk through it, so that, by the end of this tutorial, you would be able to implement an NPC conversation on your own.
 
