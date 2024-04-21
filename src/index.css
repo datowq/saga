@@ -2,10 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+#root,
+body,
+html {
+  height: 100%;
+  width: 100%;
+}
+
 :root {
-  font-family: 'FF Nort';
+  font-family: "FF Nort";
   font-weight: 400;
-  background-color: #ECE8E1;
+  background-color: #ece8e1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,8 +30,8 @@
 }
 
 .beige-text-outline {
-  color: #0504FE;
-  -webkit-text-stroke: 3px #ECE8E1;
+  color: #0504fe;
+  -webkit-text-stroke: 3px #ece8e1;
   paint-order: stroke fill;
   opacity: 50%;
   transform-origin: top left;
@@ -36,17 +43,18 @@
 
 @layer base {
   @font-face {
-    font-family: 'FF Nort';
+    font-family: "FF Nort";
     font-style: normal;
     font-weight: normal;
     font-display: swap;
-    src: url(/fonts/FFNort-Regular.ttf) format('truetype');
+    src: url(/fonts/FFNort-Regular.ttf) format("truetype");
   }
 
   @font-face {
-    font-family: 'FF Nort';
+    font-family: "FF Nort";
     font-style: bold;
     font-weight: bold;
     font-display: swap;
-    src: url(/fonts/FFNort-Bold.ttf) format('truetype');  }
+    src: url(/fonts/FFNort-Bold.ttf) format("truetype");
+  }
 }
