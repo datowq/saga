@@ -13,6 +13,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes moveLeftToRight {
+  0% {
+    transform: rotate(90deg) translateX(100%);
+  }
+  100% {
+    transform: rotate(90deg) translateX(-100%);
+  }
+}
+
+.beige-text-outline {
+  color: #0504FE;
+  -webkit-text-stroke: 3px #ECE8E1;
+  paint-order: stroke fill;
+  opacity: 50%;
+  transform-origin: top left;
+  z-index: 0;
+  white-space: nowrap;
+  display: inline-block;
+  animation: moveLeftToRight 10s linear infinite;
+}
+
 @layer base {
   @font-face {
     font-family: 'FF Nort';
