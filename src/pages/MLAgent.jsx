@@ -402,7 +402,7 @@ function MLAgent() {
           </div>
         </div>
       )}
-      <div className="fixed h-full w-full flex justify-center z-50 items-end">
+      <div className="fixed h-full w-full flex justify-center z-10 items-end">
         <div className="p-4 m-2 bg-white text-lg rounded-lg translate-y-[-1rem] drop-shadow-lg">
           <span className="font-bold">Press q</span> to display Markdown with code explanations!
         </div>
