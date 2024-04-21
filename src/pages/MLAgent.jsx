@@ -4,6 +4,7 @@ import Box from "../components/3d/prefabs/Box";
 import Player from "../components/3d/prefabs/Player";
 import PlaygroundScene from "../components/3d/scenes/PlaygroundScene";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import CodeEditorButton from "../components/CodeEditorButton";
 
 const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
 
@@ -401,6 +402,7 @@ function MLAgent() {
           </div>
         </div>
       )}
+      <CodeEditorButton />
       <PlaygroundScene>
         {/* <Box text={false} position={[0, 0.5, 0]} args={[2, 1, 2]} color="red" /> */}
         <Box
