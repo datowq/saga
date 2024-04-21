@@ -152,7 +152,7 @@ function Hero() {
               <div>
                 {" "}
                 React.js, Three.js, React Three Fiber, React Three Drei, React
-                Three Rapier, Google AI Gemini API{" "}
+                Three Rapier, Google AI Gemini API, WebGL{" "}
               </div>
             </div>
           </div>
@@ -242,8 +242,8 @@ function Hero() {
             <Track
               name="PSEUDO GAME ENGINE"
               image={sagacat}
-              description="Learn how to implement a very basic 3D game and become a true gamer."
-              buttonText="PLAY GAMES"
+              description="Learn how to implement a very basic 3D game engine and become a true gamer."
+              buttonText="BEGIN CONQUEST"
               buttonLink="/npc"
             />
             <Track
