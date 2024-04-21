@@ -2,13 +2,13 @@ const OutlineText = ({word1, word2, color}) => {
     return (
         <>
             <div className={`text-9xl font-bold ${color}-text-outline z-0`}>
-                <div className="absolute right-[-250px] -bottom-32 text-9xl outline-slide">
+                <div className="absolute right-[200px] text-9xl outline-slide">
                     {word1}
                 </div>
-                <div className="absolute right-[-250px] -bottom-32 text-9xl outline-slide-2">
+                <div className="absolute right-[200px] -bottom-32 text-9xl outline-slide-2">
                     {word1}
                 </div>
-                <div className="absolute right-[-250px] -bottom-32 text-9xl outline-slide-3">
+                <div className="absolute right-[200px] -bottom-32 text-9xl outline-slide-3">
                     {word1}
                 </div>
             </div>

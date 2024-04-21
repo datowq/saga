@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import ScrollButton from "../components/ScrollButton";
 import OutlineText from "../components/OutlineText";
 import Feature from "../components/Feature";
 import Track from "../components/Track";
@@ -9,9 +10,10 @@ import musiccat from "../assets/musiccat.png";
 import sagacat from "../assets/sagacat.png";
 import talkingcats from "../assets/talkingcats.png";
 import constructioncat from "../assets/constructioncat.png";
+import seriouslygraphical from "../assets/seriouslygraphical.png";
+import awesomeadventure from "../assets/awesomeadventure.png";
 import fish from "../assets/fish.png";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Link } from "react-router-dom";
 import Hero3D from "../components/Hero3D";
 
 function Hero() {
@@ -21,7 +23,7 @@ function Hero() {
       <div className="w-2 h-2 bg-grey absolute top-32 left-48"></div>
       <div className="w-3 h-3 bg-grey absolute top-40 left-24"></div>
       <div className="w-4 h-4 bg-grey absolute top-16 left-16"></div>
-      <div className="flex flex-col items-center justify-center py-32">
+      <div className="flex flex-col items-center justify-center py-32 relative">
         <Hero3D />
         <div className="text-grey font-bold -mb-8">
           {" "}
@@ -35,7 +37,7 @@ function Hero() {
           SAGA{" "}
         </div>
         <div className="flex gap-12 z-50">
-          <Button
+          <ScrollButton
             text="WHY SAGA"
             bgColor="beige"
             bgHoverColor="grey"
@@ -44,7 +46,7 @@ function Hero() {
             outlineColor="blue"
             link="#why-saga"
           />
-          <Button
+          <ScrollButton
             text="CHAPTERS"
             bgColor="beige"
             bgHoverColor="grey"
@@ -53,14 +55,14 @@ function Hero() {
             outlineColor="blue"
             link="#chapters"
           />
-          <Button
+          <ScrollButton
             text="GET STARTED"
             bgColor="blue"
             bgHoverColor="grey"
             textColor="beige"
             textHoverColor="beige"
             outlineColor="blue"
-            link="/npc"
+            link="#get-started"
           />
           <Button
             text="GITHUB REPO"
@@ -80,9 +82,14 @@ function Hero() {
       {/* WHY SAGA */}
       <section
         id="why-saga"
-        className="bg-blue text-beige pt-16 pb-64 relative"
+        className="bg-blue text-beige pt-16 pb-52 relative"
       >
-        {/* <div className="absolute top-0 right-0 text-9xl font-bold beige-text-outline"> SERIOUSLY </div> */}
+        <img
+          src={seriouslygraphical}
+          className="absolute bottom-0 right-0 pointer-events-none w-72"
+        />
+        {/* <OutlineText word1="SERIOUSLY" word2="AWESOME" color="beige" /> */}
+        <div className="beige-text-outline"> SERIOUSLY </div>
         <div className="flex items-center gap-4 left-0">
           <div className="w-32 h-2 bg-beige"></div>
           <div className="font-bold"> 01: ABOUT THIS PROJECT </div>
@@ -99,12 +106,15 @@ function Hero() {
                 {" "}
                 GENERAL DESCRIPTION{" "}
               </div>
-              <div> </div>
+              <div>
+                SAGA is the joint effort of cat-lovers to teach people how to
+                make cool games.
+              </div>
             </div>
             <div>
               <div className="font-bold text-2xl pb-2"> FEATURES </div>
               <div className="flex flex-col gap-8">
-                <div className="flex gap-8">
+                <div className="flex gap-8 z-10">
                   <Feature
                     icon={fish}
                     name="A GRAPHICAL ADVENTURE"
@@ -121,7 +131,7 @@ function Hero() {
                     description="Learn to use the super cool and increasingly popular THREE.js library to create 3D works in your browser."
                   />
                 </div>
-                <div className="flex gap-8">
+                <div className="flex gap-8 z-10">
                   <Feature
                     icon={fish}
                     name="RAPIER PHYSICS ENGINE"
@@ -149,7 +159,11 @@ function Hero() {
               </div>
             </div>
           </div>
-          <img src={quotecat} width={500} className="absolute right-10" />
+          <img
+            src={quotecat}
+            width={500}
+            className="absolute right-10 bottom-4"
+          />
           <div className="absolute right-72 bottom-36 text-grey text-xl">
             {" "}
             "i love ballers" - jenna{" "}
@@ -162,6 +176,10 @@ function Hero() {
 
       {/* CHAPTERS */}
       <section id="chapters" className="text-blue pt-16 pb-32 relative">
+        <img
+          src={awesomeadventure}
+          className="absolute top-0 right-0 pointer-events-none w-72"
+        />
         <div className="absolute top-6 left-2/3 flex flex-col gap-8">
           <div className="w-2 h-2 bg-grey"></div>
           <div className="w-2 h-2 bg-grey"></div>
@@ -227,7 +245,7 @@ function Hero() {
             <Track
               name="PSEUDO GAME ENGINE"
               image={sagacat}
-              description="Learn how to implement a very basic 3D game."
+              description="Learn how to implement a very basic 3D game and become a true gamer."
               buttonText="PLAY GAMES"
               buttonLink="/npc"
             />
