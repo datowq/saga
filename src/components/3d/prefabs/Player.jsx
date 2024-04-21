@@ -30,7 +30,7 @@ const Player = (props) => {
   const raycaster = new THREE.Raycaster();
 
   const [lastRaycastTime, setLastRaycastTime] = useState(performance.now());
-  const RAYCAST_INTERVAL = 100; // Perform raycasting every 100ms
+  const RAYCAST_INTERVAL = 10; // Perform raycasting every 100ms
 
   useFrame((state, delta) => {
     let prevPos = camera.position.clone();
@@ -95,7 +95,7 @@ const Player = (props) => {
 
       // Handle intersections
       if (intersects.length > 0) {
-        console.log(intersects[0]);
+        // console.log(intersects[0]);
 
       if (intersects[0].distance <= 7) {
         // console.log("hit bigboi");
@@ -104,7 +104,7 @@ const Player = (props) => {
         props.setHitObject("none");
       }
     }
-  });
+  }});
 
   useEffect(() => {
     const handleMouseMove = (event) => {
