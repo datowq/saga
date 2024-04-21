@@ -244,7 +244,7 @@ function Hero() {
               image={sagacat}
               description="Learn how to implement a very basic 3D game engine and become a true gamer."
               buttonText="BEGIN CONQUEST"
-              buttonLink="/npc"
+              buttonLink="/gaming"
             />
             <Track
               name="NON-PLAYER CHARACTERS USING LLMs"
