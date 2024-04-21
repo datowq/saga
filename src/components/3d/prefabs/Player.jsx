@@ -10,7 +10,6 @@ const red = new THREE.MeshStandardMaterial({ color: "red" });
 const Player = (props) => {
   const { forward, backward, left, right, jump, sprint } = usePlayerControls();
   const [canJump, setCanJump] = useState(false);
-  const [hitBigBoi, setHitBigBoi] = useState(false);
 
   const direction = new THREE.Vector3();
   const frontVector = new THREE.Vector3();
@@ -92,7 +91,7 @@ const Player = (props) => {
     if (intersects.length > 0) {
       // console.log(intersects[0]);
 
-      if (intersects[0].distance <= 5) {
+      if (intersects[0].distance <= 7) {
         // console.log("hit bigboi");
         props.setHitObject(intersects[0].object["name"]);
       } else {
@@ -112,9 +111,9 @@ const Player = (props) => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  useEffect(() => {
-    console.log(positionRef.current);
-  }, []);
+  // useEffect(() => {
+  //   console.log(positionRef.current);
+  // }, []);
 
   return (
     <group>
